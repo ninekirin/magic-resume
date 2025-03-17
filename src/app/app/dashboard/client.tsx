@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Cog, FileText, SwatchBook, Settings, Bot } from "lucide-react";
+import { Cog, FileText, SwatchBook, Settings, Bot, Calendar } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import {
   Sidebar,
@@ -13,13 +13,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarTrigger
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Logo from "@/components/shared/Logo";
 import { useTranslations } from "next-intl";
@@ -38,23 +38,28 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     {
       title: t("sidebar.resumes"),
       url: "/app/dashboard/resumes",
-      icon: FileText
+      icon: FileText,
     },
     {
       title: t("sidebar.templates"),
       url: "/app/dashboard/templates",
-      icon: SwatchBook
+      icon: SwatchBook,
+    },
+    {
+      title: "面试管理",
+      url: "/app/dashboard/interviews",
+      icon: Calendar,
     },
     {
       title: t("sidebar.settings"),
       url: "/app/dashboard/settings",
-      icon: Settings
+      icon: Settings,
     },
     {
       title: t("sidebar.ai"),
       url: "/app/dashboard/ai",
-      icon: Bot
-    }
+      icon: Bot,
+    },
   ];
 
   const router = useRouter();
