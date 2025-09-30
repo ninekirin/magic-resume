@@ -5,39 +5,3 @@
   font-style: normal;
   font-display: swap;
 }
-
-@font-face {
-  font-family: "MiSans VF";
-  src: url("/fonts/MiSans-VF.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Noto Sans SC";
-  src: url("/fonts/NotoSansSC.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Arial";
-}
-
-@font-face {
-  font-family: "Helvetica";
-}
-
-@font-face {
-  font-family: "Times New Roman";
-}
-
-@font-face {
-  font-family: "Courier New";
-}
-
-@font-face {
-  font-family: "Georgia";
-}

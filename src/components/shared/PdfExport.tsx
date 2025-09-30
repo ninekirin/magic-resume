@@ -211,8 +211,8 @@ const PdfExport = () => {
             <title>Print Resume</title>
             <style>
               @font-face {
-                font-family: "MiSans VF";
-                src: url("/fonts/MiSans-VF.ttf") format("woff2");
+                font-family: ${chosenFont};
+                src: local("${chosenFont}");
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
@@ -233,9 +233,7 @@ const PdfExport = () => {
                 background: white;
               }
               body {
-                font-family: ${"`"}
-                  ${chosenFont}, sans-serif
-                ${"`"};
+                font-family: ${chosenFont};
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
               }
@@ -243,9 +241,7 @@ const PdfExport = () => {
               #resume-preview {
                 padding: 0 !important;
                 margin: 0 !important;
-                font-family: ${"`"}
-                  ${chosenFont}, sans-serif
-                ${"`"} !important;
+                font-family: ${chosenFont} !important;
               }
 
               #print-content {
