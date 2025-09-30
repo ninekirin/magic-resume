@@ -232,6 +232,9 @@
         },
         "subheaderSize": {
           "title": "模块项一级标题字号"
+        },
+        "subtitleFontSize": {
+          "title": "模块副标题字号"
         }
       },
       "spacing": {

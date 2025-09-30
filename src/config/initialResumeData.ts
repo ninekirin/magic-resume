@@ -8,6 +8,7 @@ const initialGlobalSettings: GlobalSettings = {
   sectionSpacing: 10,
   headerSize: 18,
   subheaderSize: 16,
+  subtitleFontSize: 16,
   useIconMode: true,
   themeColor: "#000000",
   centerSubtitle: true,

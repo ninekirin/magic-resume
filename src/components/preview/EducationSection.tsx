@@ -66,7 +66,13 @@ const EducationSection = ({
               </div>
 
               {globalSettings?.centerSubtitle && (
-                <motion.div layout="position" className="text-subtitleFont">
+                <motion.div
+                  layout="position"
+                  className="text-subtitleFont"
+                  style={{
+                    fontSize: `${globalSettings?.subtitleFontSize || 16}px`,
+                  }}
+                >
                   {[edu.major, edu.degree].filter(Boolean).join(" · ")}
                   {edu.gpa && ` · GPA ${edu.gpa}`}
                 </motion.div>
@@ -75,6 +81,9 @@ const EducationSection = ({
               <span
                 className="text-subtitleFont shrink-0"
                 suppressHydrationWarning
+                style={{
+                  fontSize: `${globalSettings?.subtitleFontSize || 16}px`,
+                }}
               >
                 {`${new Date(edu.startDate).toLocaleDateString(
                   locale
@@ -83,7 +92,13 @@ const EducationSection = ({
             </motion.div>
 
             {!globalSettings?.centerSubtitle && (
-              <motion.div layout="position" className="text-subtitleFont mt-1">
+              <motion.div
+                layout="position"
+                className="text-subtitleFont mt-1"
+                style={{
+                  fontSize: `${globalSettings?.subtitleFontSize || 16}px`,
+                }}
+              >
                 {[edu.major, edu.degree].filter(Boolean).join(" · ")}
                 {edu.gpa && ` · GPA ${edu.gpa}`}
               </motion.div>

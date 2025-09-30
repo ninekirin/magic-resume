@@ -38,14 +38,27 @@ const ExperienceItem = React.forwardRef<HTMLDivElement, ExperienceItemProps>(
             {experience.company}
           </div>
           {centerSubtitle && (
-            <motion.div className="text-subtitleFont">
+            <motion.div
+              className="text-subtitleFont"
+              style={{
+                fontSize: `${globalSettings?.subtitleFontSize || 16}px`,
+              }}
+            >
               {experience.position}
             </motion.div>
           )}
-          <div className="text-subtitleFont">{experience.date}</div>
+          <div
+            className="text-subtitleFont"
+            style={{ fontSize: `${globalSettings?.subtitleFontSize || 16}px` }}
+          >
+            {experience.date}
+          </div>
         </motion.div>
         {experience.position && !centerSubtitle && (
-          <motion.div className="text-subtitleFont">
+          <motion.div
+            className="text-subtitleFont"
+            style={{ fontSize: `${globalSettings?.subtitleFontSize || 16}px` }}
+          >
             {experience.position}
           </motion.div>
         )}
