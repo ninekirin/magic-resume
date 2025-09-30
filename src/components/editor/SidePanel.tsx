@@ -85,10 +85,14 @@ export function SidePanel() {
   const { themeColor = THEME_COLORS[0] } = globalSettings;
   const t = useTranslations("workbench.sidePanel");
 
-  const fontOptions = [
-    { value: "sans", label: t("typography.font.sans") },
-    { value: "serif", label: t("typography.font.serif") },
-    { value: "mono", label: t("typography.font.mono") },
+  const presetFontOptions = [
+    { value: "MiSans VF", label: "MiSans VF" },
+    { value: "Noto Sans SC", label: "Noto Sans SC" },
+    { value: "Arial", label: "Arial" },
+    { value: "Helvetica", label: "Helvetica" },
+    { value: "Times New Roman", label: "Times New Roman" },
+    { value: "Courier New", label: "Courier New" },
+    { value: "Georgia", label: "Georgia" },
   ];
 
   const lineHeightOptions = [
@@ -216,12 +220,12 @@ export function SidePanel() {
         {/* 排版设置 */}
         <SettingCard icon={Type} title={t("typography.title")}>
           <div className="space-y-6">
-            {/* <div className="space-y-2">
+            <div className="space-y-2">
               <Label className="text-gray-600 dark:text-neutral-300">
-                {t('typography.font.title')}
+                {t("typography.font.title")}
               </Label>
               <Select
-                value={globalSettings?.fontFamily}
+                value={globalSettings?.fontFamily || "MiSans VF"}
                 onValueChange={(value) =>
                   updateGlobalSettings?.({ fontFamily: value })
                 }
@@ -236,22 +240,23 @@ export function SidePanel() {
                 </motion.div>
                 <SelectContent
                   className={cn(
-                    "dark:bg-neutral-900 dark:border-neutral-800 text-white",
+                    "dark:bg-neutral-900 dark:border-neutral-800 dark:text-white",
                     "bg-white border-gray-200"
                   )}
                 >
-                  {fontOptions.map((font) => (
+                  {presetFontOptions.map((font) => (
                     <SelectItem
                       key={font.value}
                       value={font.value}
                       className="cursor-pointer transition-colors hover:bg-gray-100 focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                      style={{ fontFamily: font.value }}
                     >
                       {font.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
-            </div> */}
+            </div>
 
             {/* 行高选择 */}
             <div className="space-y-2">

@@ -6,7 +6,7 @@ import {
   Loader2,
   FileJson,
   Printer,
-  ChevronDown
+  ChevronDown,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useResumeStore } from "@/store/useResumeStore";
@@ -16,7 +16,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 const getOptimizedStyles = () => {
@@ -109,22 +109,22 @@ const PdfExport = () => {
 
       const [styles] = await Promise.all([
         getOptimizedStyles(),
-        optimizeImages(clonedElement)
+        optimizeImages(clonedElement),
       ]);
 
       const response = await fetch(PDF_EXPORT_CONFIG.SERVER_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           content: clonedElement.outerHTML,
           styles,
-          margin: globalSettings.pagePadding
+          margin: globalSettings.pagePadding,
         }),
         // 允许跨域请求
         mode: "cors",
-        signal: AbortSignal.timeout(PDF_EXPORT_CONFIG.TIMEOUT)
+        signal: AbortSignal.timeout(PDF_EXPORT_CONFIG.TIMEOUT),
       });
 
       if (!response.ok) {
@@ -195,6 +195,7 @@ const PdfExport = () => {
     console.log("Found content:", actualContent);
 
     const pagePadding = globalSettings?.pagePadding;
+    const chosenFont = globalSettings?.fontFamily || "MiSans VF";
     const iframeWindow = printFrameRef.current.contentWindow;
     if (!iframeWindow) {
       console.error("IFrame window not found");
@@ -232,7 +233,9 @@ const PdfExport = () => {
                 background: white;
               }
               body {
-                font-family: sans-serif;
+                font-family: ${"`"}
+                  ${chosenFont}, sans-serif
+                ${"`"};
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
               }
@@ -240,7 +243,9 @@ const PdfExport = () => {
               #resume-preview {
                 padding: 0 !important;
                 margin: 0 !important;
-                font-family: "MiSans VF", sans-serif !important;
+                font-family: ${"`"}
+                  ${chosenFont}, sans-serif
+                ${"`"} !important;
               }
 
               #print-content {
@@ -354,7 +359,7 @@ const PdfExport = () => {
           width: "210mm",
           height: "297mm",
           visibility: "hidden",
-          zIndex: -1
+          zIndex: -1,
         }}
         title="Print Frame"
       />
