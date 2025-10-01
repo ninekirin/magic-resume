@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "daily",
-    priority: 1.0
+    priority: 1.0,
   }));
 
   return sitemap;

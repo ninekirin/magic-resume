@@ -20,6 +20,7 @@ const ExperienceItem = React.forwardRef<HTMLDivElement, ExperienceItemProps>(
   ({ experience, globalSettings }, ref) => {
     const centerSubtitle = globalSettings?.centerSubtitle;
     const gridColumns = centerSubtitle ? 3 : 2;
+    const gridColumnsClass = centerSubtitle ? "grid-cols-[2fr_2fr_1fr]" : "grid-cols-2";
 
     return (
       <motion.div
@@ -27,7 +28,7 @@ const ExperienceItem = React.forwardRef<HTMLDivElement, ExperienceItemProps>(
         layout="position"
       >
         <motion.div
-          className={`grid grid-cols-${gridColumns} gap-2 items-center justify-items-start [&>*:last-child]:justify-self-end`}
+          className={`grid ${gridColumnsClass} gap-2 items-center justify-items-start [&>*:last-child]:justify-self-end`}
         >
           <div
             className="font-bold"

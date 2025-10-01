@@ -22,7 +22,7 @@ const ProjectItem = React.forwardRef<HTMLDivElement, ProjectItemProps>(
         }}
       >
         <motion.div
-          className={`grid grid-cols-3 gap-2 items-center justify-items-start [&>*:last-child]:justify-self-end`}
+          className={`grid grid-cols-[2fr_2fr_1fr] gap-2 items-center justify-items-start [&>*:last-child]:justify-self-end`}
         >
           <div className="flex items-center gap-2">
             <h3
@@ -67,7 +67,7 @@ const ProjectItem = React.forwardRef<HTMLDivElement, ProjectItemProps>(
           {centerSubtitle && (
             <motion.div
               layout="position"
-              className=" text-subtitleFont"
+              className="text-subtitleFont"
               style={{
                 fontSize: `${globalSettings?.subtitleFontSize || 16}px`,
               }}
@@ -85,7 +85,7 @@ const ProjectItem = React.forwardRef<HTMLDivElement, ProjectItemProps>(
         {project.role && !centerSubtitle && (
           <motion.div
             layout="position"
-            className=" text-subtitleFont"
+            className="text-subtitleFont"
             style={{ fontSize: `${globalSettings?.subtitleFontSize || 16}px` }}
           >
             {project.role}

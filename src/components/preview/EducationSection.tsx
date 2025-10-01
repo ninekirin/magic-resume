@@ -53,7 +53,7 @@ const EducationSection = ({
             <motion.div
               layout="position"
               className={`grid grid-cols-${
-                globalSettings?.centerSubtitle ? "3" : "2"
+                globalSettings?.centerSubtitle ? "[2fr_2fr_1fr]" : "2"
               } gap-2 items-center justify-items-start [&>*:last-child]:justify-self-end`}
             >
               <div

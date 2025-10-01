@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
   getTranslations,
-  setRequestLocale
+  setRequestLocale,
 } from "next-intl/server";
 import Document from "@/components/Document";
 import { locales } from "@/i18n/config";
@@ -21,7 +21,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params: { locale }
+  params: { locale },
 }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "common" });
   const baseUrl = "https://magicv.art";
@@ -30,20 +30,20 @@ export async function generateMetadata({
     title: t("title") + " - " + t("subtitle"),
     description: t("description"),
     alternates: {
-      canonical: `${baseUrl}/${locale}`
+      canonical: `${baseUrl}/${locale}`,
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       locale: locale,
-      alternateLocale: locale === "en" ? ["zh"] : ["en"]
-    }
+      alternateLocale: locale === "en" ? ["zh"] : ["en"],
+    },
   };
 }
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params: { locale },
 }: Props) {
   setRequestLocale(locale);
 
