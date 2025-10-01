@@ -3,6 +3,10 @@
 FROM node:20-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+
+RUN npm config set registry https://registry.npmmirror.com \
+    && pnpm config set registry https://registry.npmmirror.com
+
 RUN npm install -g corepack@latest && corepack enable
 
 WORKDIR /app
