@@ -85,9 +85,11 @@ const EducationSection = ({
                   fontSize: `${globalSettings?.subtitleFontSize || 16}px`,
                 }}
               >
-                {`${new Date(edu.startDate).toLocaleDateString(
-                  locale
-                )} - ${new Date(edu.endDate).toLocaleDateString(locale)}`}
+                {`${new Date(edu.startDate).getFullYear()}/${
+                  new Date(edu.startDate).getMonth() + 1
+                } - ${new Date(edu.endDate).getFullYear()}/${
+                  new Date(edu.endDate).getMonth() + 1
+                }`}
               </span>
             </motion.div>
 
